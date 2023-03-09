@@ -1,0 +1,17 @@
+<div class="card rounded-md mt-2 -mx-2 flex ">
+    <%= link_to  edit_course_path(@course), class:"mx-2 mt-2 no-underline font-semibold" do %>
+        <i class="fas fa-pen-square"></i> Modifier
+    <% end %>
+
+    <%= link_to course_path(@course), method: :delete, class:"mx-2 mt-2 no-underline font-semibold" do %>
+        <i class="fas fa-pen-square"></i> Supprimer
+    <% end %>
+    
+</div>
+
+<% if action_name != "show" %>
+    <%= link_to "Show this course", course, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this course', edit_course_path(course), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Add Exercise', new_course_exercice_path(course), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>

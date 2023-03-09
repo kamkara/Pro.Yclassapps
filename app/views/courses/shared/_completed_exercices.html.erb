@@ -1,0 +1,10 @@
+<div class="border rounded-md">
+    <div class="bg-gray-100 p-2">
+        <h2 class="font-semibold"><%= q.name %></h2>
+    </div>
+    <div class="flex my-2 gap-6 ">
+        <p class="mx-4 ">Comprit a: <%= q.user_grade(current_user) %></p>
+        <%= link_to "Refait exercice", new_exercice_result_path(q), class: "text-black bg-gray-200 px-2"%>
+    </div> 
+</div>
+        

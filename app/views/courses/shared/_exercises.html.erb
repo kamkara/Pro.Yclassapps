@@ -1,0 +1,15 @@
+<% if course.exercises.empty? %>  
+    <div class="card p-4">
+        <p class="">Ajouter le premier exercices</p>
+    </div>
+
+<% else %>
+    <% course.exercises.chrono.each do |exercise| %>
+        <%# if exercise.completed_by(current_user) %>
+            <%#= render partial: "courses/shared/completed_exercices", locals: {exercise: exercise} %>
+        <%# else %>
+            <%= render partial: "courses/shared/unattempted_exercices", locals: {exercise: exercise} %>
+        <%# end %>
+    <% end %>
+<% end %>
+

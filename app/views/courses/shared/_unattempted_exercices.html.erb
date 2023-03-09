@@ -1,0 +1,13 @@
+<div class="border rounded-md mb-1">
+        <div class="bg-gray-100 p-2">
+            <h2 class="font-semibold"><%= exercise.title %></h2>
+        </div>
+        <div class=" flex  justify-around m-2 ">
+            <p class="flex "> <%#= exercise.questions.count %> Donnez</p>
+            
+    <%= link_to(new_exercise_result_path(exercise), class: " text-black") do %>
+    <p class="">message d'information générale sur l'exercice et le bouton Commencez l'exercise</p>
+    <% end %>
+            <p class="flex"> <%#= exercise.questions.count %> 100X traité</p>
+        </div>
+</div>
