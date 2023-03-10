@@ -77,3 +77,9 @@ end
 gem "friendly_id", "~> 5.5"
 
 gem "devise", "~> 4.9"
+
+############### Deploy    ############
+gem 'platform_sh_rails'
+gem "connection_pool", "~> 2.3"
+gem 'unicorn', '~> 6.1', :group => :production
+#gem "aws-sdk-s3", require: false
