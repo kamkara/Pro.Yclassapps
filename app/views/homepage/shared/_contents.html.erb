@@ -13,12 +13,12 @@
                 <!-- Cached Course content-->
                     <% cache do %>
                     <!-- Embed in turbo_frame -->
-                        <%= turbo_frame_tag dom_id(feed_course) do %>
+                        <%#= turbo_frame_tag dom_id(feed_course) do %>
                             <%= link_to course_path(feed_course) do %>
                                 <%= truncate(strip_tags(feed_course.content.to_s.html_safe), length: 400) %>
                                 <span class="text-blue-600 bg-gray-200 px-2 py-1 rounded-full ">Voir plus</span>
                             <% end %>
-                        <% end %>
+                        <%# end %>
                     <% end %>
 
                 </div>

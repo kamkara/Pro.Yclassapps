@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :materials, class_name: "Material", foreign_key: "user_id"
   has_many :questions, class_name: "Question", foreign_key: "user_id"
   has_many :articles, class_name: "Article", foreign_key: "user_id"
+  has_many :results, class_name: "Result", foreign_key: "user_id"
 
  
   # Avant la validation de l'utilisateur, assigner first_name et last_name à partir de full_name

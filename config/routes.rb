@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
-
-
+  
+  
   #get "articles", to:"articles#index"
   get "new-article", to:"articles#new"
-  resources :results
-  resources :answers
-  resources :questions
-
+  
 
   resources :courses, only:[:show] do
     resources :exercises, only:[:new, :create, :destroy, :edit, :update]
@@ -22,11 +19,16 @@ Rails.application.routes.draw do
     resources :results, only: [:new, :create]
   end
   
-  resources :articles, except: [:new]
-  resources :courses, except:[:index, :show, :new]
-  resources :questions, except:[:new, :create, :destroy]
+  resources :articles, except: %i[:new]
+  resources :courses, except:%i[:index, :show, :new]
+  resources :questions, except:%i[:new, :create, :destroy]
   resources :materials, :levels, :citynames
+  resources :results, except: %i[:new, :create]
+  resources :exercises, only: %i[:new, :show, :edit, :create, :update, :destroy, :index]
+  resources :answers
   
+
+
   devise_scope :user do
     get 'profil', to: 'devise/registrations#edit'
     get 'student-sign-in', to: 'devise/sessions#new'

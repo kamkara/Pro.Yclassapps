@@ -1,0 +1,53 @@
+<%= form_with(model: question, url:[@exercise, question], class: "contents") do |form| %>
+
+    <% if question.errors.any? %>
+        <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+            <h2><%= pluralize(question.errors.count, "error") %>
+                prohibited this question from being saved:</h2>
+
+            <ul>
+                <% question.errors.each do |error| %>
+                    <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <%= form.hidden_field :exercise_id, value: @exercise.id %>
+
+
+    <div class="my-5">
+      <%= form.text_area :title, rows: 1, placeholder:"Question...", class: "block rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+    <div class="flex">
+      <div class="w-10/12">Propositions de reponses</div>
+      <div class="w-2/12">
+        <p class="justify-items-end">Bonne réponse</p>
+      </div>
+    </div>
+    <div class=" my-2">
+      <%= render "added_answer_fields" , :f => form %>
+    </div>
+
+    <div class="my-2">
+      <%= form.text_area :detail, rows: 2, placeholder:"Explications ...", class: "block  rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+
+    <div class="inline my-4">
+        <%= form.submit "question suivante", class: "rounded-lg py-2 px-4 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    </div>
+
+<% end %>
+
+
+<% if @exercise.questions.any? %>
+  <div class="my-4">
+    <% @questions.each do |question| %>
+      <%= render partial: 'added_questions', locals: { question: question } %>
+    <% end %>
+  </div>
+<% else %>
+  <p class="my-4">Aucune questions pour le moment!</p>
+<% end %>
+

@@ -1,0 +1,19 @@
+<div class="p-4 bg-gray-100 rounded-lg my-4">
+    <h3 class="text-lg font-semibold mb-2"><%= question.title %></h3>
+    <p><%= question.details %></p>
+    <ul class="mt-4">
+        <% question.answers.each do |answer| %>
+            <li class="flex items-center mb-2">
+                <% if answer.correct %>
+                    <span class="w-2/12 h-2/12 bg-green-500 rounded-full mr-2"></span>
+                <% else %>
+                    <span class="w-2/12 h-2/12 bg-red-500 rounded-full mr-2"></span>
+                <% end %>
+                <span class="w-10/12"><%= answer.content %></span>
+            </li>
+        <% end %>
+    </ul>
+</div>
+
+
+

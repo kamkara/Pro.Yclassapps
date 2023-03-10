@@ -1,0 +1,15 @@
+<div class="flex flex-col space-y-2 my-8">
+    <%= f.fields_for :answers, f.object.answers.build do |answer_form| %>
+        <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
+            <div class="w-full md:w-10/12">
+              <%= answer_form.text_field :content, placeholder: "> proposition ...", class: "rounded-md block w-full" %>
+            </div>
+
+            <div class="w-full md:w-2/12 md:pl-8">
+                <%#= answer_form.label :correct,"Bonne reponse", class: "block font-medium text-gray-700" %>
+                <%= answer_form.check_box :correct, class: "rounded-full h-5 w-5 text-indigo-600" %>
+            </div>
+        </div>
+    <% end %>
+</div>
+

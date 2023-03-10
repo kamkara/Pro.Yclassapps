@@ -1,5 +1,5 @@
 <div id="<%= dom_id @course %>" class="container mx-auto w-full flex">
-    <%= turbo_frame_tag dom_id(@course) do %>
+    <%#= turbo_frame_tag dom_id(@course) do %>
         <!-- Course content-->
             <%= @course.content %>
         <%# end %>
@@ -37,9 +37,9 @@
                     </ul>
                 </div>
                 <!-- Link Exercise Form-->
-                <div class="flex">
-                    <%#= link_to 'Nouvel Exercice', new_course_exercise_path(@course),
-                        data:{ turbo_frame: "add_exercise_form"}, class:"bg-gray-200 py-3 px-4 " %>
+                <div class="flex"> 
+                    <%#= link_to 'Nouvel Exercice', new_course_exercise_path(@course), data:{ turbo_frame: "add_exercise_form"}, class:"bg-gray-200 py-3 px-4 " %>
+                    <%= link_to 'Nouvel Exercice', new_course_exercise_path(@course), class:"bg-gray-200 py-3 px-4 " %>
                 </div>
             </div>
 
@@ -47,16 +47,13 @@
             <%#= turbo_frame_tag "add_exercise_form" %>
 
         <%# end %>
-    <!-- Exercises Feed-->
-    <div class="border bg-white m-2">
-        <!-- Exercises New Form-->
-        <%#= turbo_frame_tag dom_id(Exercise.new) %>
-        <!-- Exercises feed-->
-
-        <%#= render "courses/shared/exercises", course:@course %>
-
-    </div>
-    <% end %>
-
+        <!-- Exercises Feed-->
+        <div class="border bg-white m-2">
+            <!-- Exercises New Form-->
+            <%#= turbo_frame_tag dom_id(Exercise.new) %>
+            <!-- Exercises feed-->
+            <%#= render "courses/shared/exercises", course:@course %>
+        </div>
+    <%# end %>
 </div>
 
